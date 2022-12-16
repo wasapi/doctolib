@@ -53,7 +53,7 @@ AGENDA_IDS=$(curl -sA "${USER_AGENT}" https://${BASE_URL}/booking/${PRACTICE_NAM
 #Localisation
 if [ -z "${PRACTICE_IDS}" ]; then
   PRINT_CMD=1
-  curl -sA "${USER_AGENT}" https://${BASE_URL}/${PRACTICE_FULLNAME}.json | jq -r '.data.places[] | "\(.practice_ids[0]) => \(.short_name) \(.full_address)"'
+  curl -sA "${USER_AGENT}" https://${BASE_URL}/${PRACTICE_FULLNAME}.json | jq -r '.data.places[] | "\(.practice_ids[0]) => \(.name) \(.full_address)"'
   read -r -p "Sélectionner un localisation (id): " PRACTICE_IDS
 fi
 
