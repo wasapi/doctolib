@@ -43,7 +43,7 @@ fi
 #Motif de visite
 if [ -z "${VISIT_MOTIVES_IDS}" ]; then
   PRINT_CMD=1
-  curl -sA "${USER_AGENT}" https://${BASE_URL}/booking/${PRACTICE_NAME}.json | jq -r '.data.visit_motives[] | "\(.id) => \(.name)"'
+  curl -sA "${USER_AGENT}" https://${BASE_URL}/online_booking/draft/new.json?id=${PRACTICE_NAME} | jq -r '.data.visit_motives[] | "\(.id) => \(.name)"'
   read -r -p "Sélectionner un motif de visite (id): " VISIT_MOTIVES_IDS
 fi
 
