@@ -48,7 +48,7 @@ if [ -z "${VISIT_MOTIVES_IDS}" ]; then
 fi
 
 #Agenda
-AGENDA_IDS=$(curl -sA "${USER_AGENT}" https://${BASE_URL}/booking/${PRACTICE_NAME}.json | jq -jr '.data.agendas[] | "\(.id)-"' | sed 's/-$//')
+AGENDA_IDS=$(curl -sA "${USER_AGENT}" https://${BASE_URL}/online_booking/draft/new.json?id=${PRACTICE_NAME} | jq -jr '.data.agendas[] | "\(.id)-"' | sed 's/-$//')
 
 #Localisation
 if [ -z "${PRACTICE_IDS}" ]; then
